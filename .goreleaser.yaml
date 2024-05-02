@@ -14,8 +14,6 @@ builds:
       - amd64
     binary: itmetrics
     id: itmetrics
-    ldflags:
-      - -s -w -X main.version={{.Version}} -X main.commit={{.ShortCommit}} -X main.date={{.Date}}
 archives:
   - format: tar.gz
     name_template: |-
@@ -46,3 +44,4 @@ brews:
       owner: taylormonacelli
       name: homebrew-tools
       branch: main
+
