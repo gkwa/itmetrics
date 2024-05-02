@@ -22,6 +22,6 @@ var runCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(runCmd)
-	runCmd.Flags().StringVarP(&manifestPath, "manifest", "m", "manifest.k", "Path or URL to manifest.k")
+	runCmd.Flags().StringVarP(&manifestPath, "manifest", "m", "https://raw.githubusercontent.com/taylormonacelli/wildcalifornia/master/all.k", "Path or URL to manifest.k")
 	runCmd.Flags().StringVarP(&outdir, "outdir", "o", ".", "Output directory")
 }
