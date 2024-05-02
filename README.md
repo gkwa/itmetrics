@@ -13,13 +13,25 @@ brew install taylormonacelli/homebrew-tools/itmetrics
 
 ```
 
+## Usage
+
+
+```bash
+
+itmetrics run --manifest=file:///Users/mtm/pdev/taylormonacelli/wildcalifornia/all.k --outdir=trash
+
+
+rm -rf example*; make && ./itmetrics run --manifest=https://raw.githubusercontent.com/taylormonacelli/wildcalifornia/master/all.k
+
+
+```
+
 
 ## Build
 
 
 ```bash
 
-curl -LO https://raw.githubusercontent.com/taylormonacelli/wildcalifornia/master/all.k
 make && ./itmetrics run --manifest=all.k
 
 ```
