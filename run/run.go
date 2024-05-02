@@ -2,6 +2,8 @@ package run
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 	"strings"
 
 	kcl "kcl-lang.io/kcl-go"
@@ -32,7 +34,7 @@ func Run(manifestPath string) {
 		return
 	}
 
-	for _, example := range examples {
+	for i, example := range examples {
 		exampleMap, ok := example.(map[string]interface{})
 		if !ok {
 			fmt.Println("Error: example is not a map")
@@ -51,12 +53,30 @@ func Run(manifestPath string) {
 			continue
 		}
 
-		txtarLines := strings.Split(txtar, "\n")
+		ordinal := i + 1
+		dirName := fmt.Sprintf("example-%03d", ordinal)
 
-		for _, line := range txtarLines {
-			fmt.Println(line)
+		err := os.MkdirAll(dirName, os.ModePerm)
+		if err != nil {
+			fmt.Printf("Error creating directory %s: %v\n", dirName, err)
+			continue
 		}
 
-		fmt.Println("---")
+		filePath := filepath.Join(dirName, "manifest.txtar")
+
+		file, err := os.Create(filePath)
+		if err != nil {
+			fmt.Printf("Error creating file %s: %v\n", filePath, err)
+			continue
+		}
+		defer file.Close()
+
+		_, err = file.WriteString(strings.TrimSpace(txtar))
+		if err != nil {
+			fmt.Printf("Error writing to file %s: %v\n", filePath, err)
+			continue
+		}
+
+		fmt.Printf("Processed example %d\n", ordinal)
 	}
 }
