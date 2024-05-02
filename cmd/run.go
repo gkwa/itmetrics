@@ -6,6 +6,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	outdir       string
+	manifestPath string
+)
+
 var runCmd = &cobra.Command{
 	Use:   "run",
 	Short: "A brief description of your command",
@@ -16,13 +21,12 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		manifestPath, _ := cmd.Flags().GetString("manifest")
-		run.Run(manifestPath)
+		run.Run(manifestPath, outdir)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(runCmd)
-
-	runCmd.Flags().StringP("manifest", "m", "manifest.k", "Path to manifest.k")
+	runCmd.Flags().StringVarP(&manifestPath, "manifest", "m", "manifest.k", "Path or URL to manifest.k")
+	runCmd.Flags().StringVarP(&outdir, "outdir", "o", ".", "Output directory")
 }
