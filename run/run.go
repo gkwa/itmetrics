@@ -2,7 +2,7 @@ package run
 
 import (
 	"fmt"
-	"sort"
+	"strings"
 
 	kcl "kcl-lang.io/kcl-go"
 )
@@ -20,27 +20,43 @@ func Run(manifestPath string) {
 		return
 	}
 
-	packagesInterface, ok := r["packages"]
+	examplesInterface, ok := r["examples"]
 	if !ok {
-		fmt.Println("Error: 'packages' field not found in KCL result")
+		fmt.Println("Error: 'examples' field not found in KCL result")
 		return
 	}
 
-	packages, ok := packagesInterface.([]interface{})
+	examples, ok := examplesInterface.([]interface{})
 	if !ok {
-		fmt.Println("Error: 'packages' field is not a slice of interfaces")
+		fmt.Println("Error: 'examples' field is not a slice of interfaces")
 		return
 	}
 
-	sort.Slice(packages, func(i, j int) bool {
-		pi := packages[i].(map[string]interface{})["check_installed"].(string)
-		pj := packages[j].(map[string]interface{})["check_installed"].(string)
-		return pi < pj
-	})
+	for _, example := range examples {
+		exampleMap, ok := example.(map[string]interface{})
+		if !ok {
+			fmt.Println("Error: example is not a map")
+			continue
+		}
 
-	for _, pkg := range packages {
-		name := pkg.(map[string]interface{})["name"].(string)
-		checkInstalled := pkg.(map[string]interface{})["check_installed"].(string)
-		fmt.Printf("Processing package: %s, check installed: %s\n", name, checkInstalled)
+		txtarInterface, ok := exampleMap["txtar"]
+		if !ok {
+			fmt.Println("Error: 'txtar' field not found in example")
+			continue
+		}
+
+		txtar, ok := txtarInterface.(string)
+		if !ok {
+			fmt.Println("Error: 'txtar' field is not a string")
+			continue
+		}
+
+		txtarLines := strings.Split(txtar, "\n")
+
+		for _, line := range txtarLines {
+			fmt.Println(line)
+		}
+
+		fmt.Println("---")
 	}
 }
