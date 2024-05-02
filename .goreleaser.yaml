@@ -14,6 +14,8 @@ builds:
       - amd64
     binary: itmetrics
     id: itmetrics
+    ldflags:
+    - -s -w -X github.com/carlmjohnson/versioninfo.Version={{.Version}}    
 archives:
   - format: tar.gz
     name_template: |-
