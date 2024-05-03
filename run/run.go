@@ -58,16 +58,17 @@ func Run(manifestPath, outdir string) {
 			fmt.Println("Error: 'txtar' field is not a string")
 			continue
 		}
+
+		var notes string
 		notesInterface, ok := exampleMap["notes"]
-		if !ok {
-			fmt.Println("Error: 'notes' field not found in example")
-			continue
+		if ok {
+			notes, ok = notesInterface.(string)
+			if !ok {
+				fmt.Println("Error: 'notes' field is not a string")
+				continue
+			}
 		}
-		notes, ok := notesInterface.(string)
-		if !ok {
-			fmt.Println("Error: 'notes' field is not a string")
-			continue
-		}
+
 		ordinal := i + 1
 		dirName := filepath.Join(outdir, fmt.Sprintf("example-%03d", ordinal))
 		err := os.MkdirAll(dirName, os.ModePerm)
@@ -99,6 +100,18 @@ func Run(manifestPath, outdir string) {
 			fmt.Printf("Error writing to file %s: %v\n", notesFilePath, err)
 			continue
 		}
+
+		if notes != "" {
+			notesFilePath := filepath.Join(dirName, "notes.txt")
+			notesFile, err := os.Create(notesFilePath)
+			if err != nil {
+				fmt.Printf("Error creating file %s: %v\n", notesFilePath, err)
+				continue
+			}
+			defer notesFile.Close()
+			_, err = notesFile.WriteString(strings.TrimSpace(notes))
+		}
+
 		fmt.Printf("Processed example %d\n", ordinal)
 	}
 }
