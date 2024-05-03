@@ -48,6 +48,17 @@ func Run(manifestPath, outdir string) {
 			fmt.Println("Error: example is not a map")
 			continue
 		}
+
+		nameInterface, ok := exampleMap["name"]
+		if !ok {
+			fmt.Println("Error: 'name' field not found in example")
+			continue
+		}
+		name, ok := nameInterface.(string)
+		if !ok {
+			fmt.Println("Error: 'name' field is not a string")
+		}
+
 		txtarInterface, ok := exampleMap["txtar"]
 		if !ok {
 			fmt.Println("Error: 'txtar' field not found in example")
@@ -100,6 +111,15 @@ func Run(manifestPath, outdir string) {
 			fmt.Printf("Error writing to file %s: %v\n", notesFilePath, err)
 			continue
 		}
+
+		nameFilePath := filepath.Join(dirName, "name.txt")
+		nameFile, err := os.Create(nameFilePath)
+		if err != nil {
+			fmt.Printf("Error creating file %s: %v\n", nameFilePath, err)
+			continue
+		}
+		defer nameFile.Close()
+		_, err = nameFile.WriteString(strings.TrimSpace(name))
 
 		if notes != "" {
 			notesFilePath := filepath.Join(dirName, "notes.txt")
