@@ -2,6 +2,11 @@ before:
   hooks:
     - go mod tidy
     - go generate ./...
+    - |
+      echo "Version: {{.Version}}"
+      echo "Tag: {{.Tag}}"
+      echo "ShortCommit: {{.ShortCommit}}"
+
 builds:
   - env:
       - CGO_ENABLED=0
