@@ -15,7 +15,7 @@ builds:
     binary: itmetrics
     id: itmetrics
     ldflags:
-    - -s -w -X github.com/carlmjohnson/versioninfo.Version={{.Version}} -X github.com/carlmjohnson/versioninfo.Revision={{.ShortCommit}}
+    - -s -w -X github.com/carlmjohnson/versioninfo.Version={{.Tag}} -X github.com/carlmjohnson/versioninfo.Revision={{.ShortCommit}}
 
 archives:
   - format: tar.gz
