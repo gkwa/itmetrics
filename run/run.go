@@ -119,7 +119,10 @@ func Run(manifestPath, outdir string) {
 			continue
 		}
 		defer nameFile.Close()
-		_, err = nameFile.WriteString(strings.TrimSpace(name))
+		_, err = nameFile.WriteString(strings.TrimSpace(name) + "\n")
+		if err != nil {
+			panic(err)
+		}
 
 		if notes != "" {
 			notesFilePath := filepath.Join(dirName, "notes.txt")
@@ -130,6 +133,9 @@ func Run(manifestPath, outdir string) {
 			}
 			defer notesFile.Close()
 			_, err = notesFile.WriteString(strings.TrimSpace(notes))
+			if err != nil {
+				panic(err)
+			}
 		}
 
 		fmt.Printf("Processed example %d\n", ordinal)
