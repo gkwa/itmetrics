@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/carlmjohnson/versioninfo"
 	"github.com/spf13/cobra"
@@ -15,6 +16,9 @@ var rootCmd = &cobra.Command{
 	Version: fmt.Sprintf("%s, commit %s", versioninfo.Short(), versioninfo.Revision),
 }
 
-func Execute() error {
-	return rootCmd.Execute()
+func Execute() {
+	err := rootCmd.Execute()
+	if err != nil {
+		os.Exit(1)
+	}
 }
