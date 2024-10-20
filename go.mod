@@ -4,7 +4,7 @@ go 1.21.4
 
 require (
 	github.com/carlmjohnson/versioninfo v0.22.5
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.8.1
 	kcl-lang.io/kcl-go v0.8.7
 )
 
