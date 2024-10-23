@@ -7,7 +7,7 @@ toolchain go1.23.2
 require (
 	github.com/carlmjohnson/versioninfo v0.22.5
 	github.com/spf13/cobra v1.8.1
-	kcl-lang.io/kcl-go v0.10.3
+	kcl-lang.io/kcl-go v0.10.4
 )
 
 require (
@@ -39,5 +39,5 @@ require (
 	google.golang.org/protobuf v1.35.1 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	kcl-lang.io/lib v0.10.3 // indirect
+	kcl-lang.io/lib v0.10.4 // indirect
 )
