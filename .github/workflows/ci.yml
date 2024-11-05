@@ -10,6 +10,7 @@ name: Build & Test
   - cron: 01 13 * * SAT
 jobs:
   build:
+    name: Build & Test
     strategy:
       matrix:
         os:
@@ -17,7 +18,6 @@ jobs:
         - macOS-latest
         - windows-latest
     runs-on: ${{ matrix.os }}
-    name: Build & Test
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
     - uses: actions/setup-go@41dfa10bad2bb2ae585af6ee5bb4d7d973ad74ed # v5
