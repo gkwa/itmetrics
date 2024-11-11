@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/carlmjohnson/versioninfo"
+	"github.com/carlmjohnson/versioninfo/v2"
 	"github.com/spf13/cobra"
 )
 
