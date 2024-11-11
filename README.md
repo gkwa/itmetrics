@@ -3,9 +3,7 @@
 - https://github.com/taylormonacelli/wildcalifornia/blob/master/all.k
 - https://raw.githubusercontent.com/taylormonacelli/wildcalifornia/master/all.k
 
-
 ## Install from homebrew
-
 
 ```bash
 
@@ -14,7 +12,6 @@ brew install taylormonacelli/homebrew-tools/itmetrics
 ```
 
 ## Usage
-
 
 ### example
 
@@ -26,8 +23,6 @@ itmetrics run --manifest=file:///Users/mtm/pdev/taylormonacelli/wildcalifornia/a
 
 ```
 
-
-
 ### example
 
 ```bash
@@ -37,9 +32,7 @@ rm -rf example*; make && ./itmetrics run --manifest=https://raw.githubuserconten
 
 ```
 
-
 ## Build
-
 
 ```bash
 
