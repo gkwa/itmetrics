@@ -32,3 +32,5 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	kcl-lang.io/lib v0.10.8 // indirect
 )
+
+replace github.com/carlmjohnson/versioninfo/v2 => github.com/earthboundkid/versioninfo/v2 v2.24.1
