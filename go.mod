@@ -5,7 +5,7 @@ go 1.23
 toolchain go1.23.3
 
 require (
-	github.com/carlmjohnson/versioninfo/v2 v2.24.1
+	github.com/carlmjohnson/versioninfo v0.22.5
 	github.com/spf13/cobra v1.8.1
 	kcl-lang.io/kcl-go v0.10.8
 )
@@ -32,3 +32,5 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	kcl-lang.io/lib v0.10.8 // indirect
 )
+
+replace github.com/carlmjohnson/versioninfo/v2 => github.com/earthboundkid/versioninfo/v2 v2.24.1
