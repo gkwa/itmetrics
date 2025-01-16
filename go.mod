@@ -2,7 +2,7 @@ module github.com/taylormonacelli/itmetrics
 
 go 1.23
 
-toolchain go1.23.4
+toolchain go1.23.5
 
 require (
 	github.com/carlmjohnson/versioninfo/v2 v2.24.1
