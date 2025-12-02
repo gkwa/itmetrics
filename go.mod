@@ -7,14 +7,14 @@ toolchain go1.25.4
 require (
 	github.com/carlmjohnson/versioninfo/v2 v2.24.1
 	github.com/spf13/cobra v1.10.1
-	kcl-lang.io/kcl-go v0.12.0
+	kcl-lang.io/kcl-go v0.12.1
 )
 
 require (
 	github.com/chai2010/jsonv v1.1.3 // indirect
 	github.com/chai2010/protorpc v1.1.4 // indirect
 	github.com/ebitengine/purego v0.9.1 // indirect
-	github.com/goccy/go-yaml v1.18.0 // indirect
+	github.com/goccy/go-yaml v1.19.0 // indirect
 	github.com/gofrs/flock v0.12.1 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
@@ -30,7 +30,7 @@ require (
 	google.golang.org/grpc v1.77.0 // indirect
 	google.golang.org/protobuf v1.36.10 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	kcl-lang.io/lib v0.12.0 // indirect
+	kcl-lang.io/lib v0.12.1 // indirect
 )
 
 replace github.com/carlmjohnson/versioninfo/v2 => github.com/earthboundkid/versioninfo/v2 v2.24.1
