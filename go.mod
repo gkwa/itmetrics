@@ -6,7 +6,7 @@ toolchain go1.25.5
 
 require (
 	github.com/carlmjohnson/versioninfo/v2 v2.24.1
-	github.com/spf13/cobra v1.10.1
+	github.com/spf13/cobra v1.10.2
 	kcl-lang.io/kcl-go v0.12.1
 )
 
