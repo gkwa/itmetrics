@@ -7,7 +7,7 @@ toolchain go1.25.5
 require (
 	github.com/carlmjohnson/versioninfo/v2 v2.24.1
 	github.com/spf13/cobra v1.10.2
-	kcl-lang.io/kcl-go v0.12.1
+	kcl-lang.io/kcl-go v0.12.3
 )
 
 require (
@@ -30,7 +30,7 @@ require (
 	google.golang.org/grpc v1.77.0 // indirect
 	google.golang.org/protobuf v1.36.10 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	kcl-lang.io/lib v0.12.1 // indirect
+	kcl-lang.io/lib v0.12.3 // indirect
 )
 
 replace github.com/carlmjohnson/versioninfo/v2 => github.com/earthboundkid/versioninfo/v2 v2.24.1
